@@ -24,7 +24,7 @@ class ScaleRoute extends PageRouteBuilder {
           ).animate(
             CurvedAnimation(
               parent: animation,
-              curve: Curves.fastOutSlowIn,
+              curve: Curves.easeIn,
             ),
           ),
           child: child,
