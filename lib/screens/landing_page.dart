@@ -32,7 +32,8 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: BColor.whiteCol,
-        leading: Image.asset(BImages.logo),
+        leading: Container(
+            margin: EdgeInsets.only(left: 18),            child: Image.asset(BImages.logo)),
         actions: <Widget>[
           Container(
             margin: EdgeInsets.only(right: 8),
