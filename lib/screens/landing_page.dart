@@ -1,13 +1,12 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_bulbandkey/constants/constants.dart';
 import 'package:flutter_app_bulbandkey/controller/controller.dart';
 import 'package:flutter_app_bulbandkey/screens/export.dart';
+import 'package:flutter_app_bulbandkey/transitions/scale_route.dart';
 import 'package:flutter_app_bulbandkey/widgets/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 
 class LandingPage extends StatefulWidget {
   static const String route = '/';
@@ -19,7 +18,6 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   LandingPageCrontroller _landingPageCrontroller =
       Get.put(LandingPageCrontroller());
-
 
   @override
   void initState() {
@@ -37,12 +35,12 @@ class _LandingPageState extends State<LandingPage> {
         leading: SvgPicture.asset(BImages.logo),
         actions: <Widget>[
           Container(
-              margin: EdgeInsets.only(right: 8),
-              child: SvgPicture.asset(BImages.bell),
+            margin: EdgeInsets.only(right: 8),
+            child: Image.asset(BImages.bell),
           ),
           Container(
-              margin: EdgeInsets.only(right: 8),
-              child: SvgPicture.asset(BImages.search),
+            margin: EdgeInsets.only(right: 8),
+            child: Image.asset(BImages.search),
           ),
         ],
       ),
@@ -61,7 +59,7 @@ class _LandingPageState extends State<LandingPage> {
                   children: [
                     Row(
                       children: [
-                SvgPicture.asset(BImages.location),
+                        Image.asset(BImages.location),
                         Text(
                           'Unnmaned Road,Baner340...',
                           style: TextStyle(
@@ -103,11 +101,28 @@ class _LandingPageState extends State<LandingPage> {
 
                               return InkWell(
                                 onTap: () {
-                                  Navigator.pushNamed(
-                                    context,
-                                    '/RatingDetails',
-                                    arguments: ScreenArguments(id, url),
-                                  );
+                                  // Navigator.pushNamed(
+                                  //   context,
+                                  //   '/RatingDetails',
+                                  //   arguments: ScreenArguments(id, url),
+                                  // );
+
+                                  // Navigator.push(
+                                  //   context,
+                                  //   PageRouteBuilder(
+                                  //
+                                  //     transitionDuration: Duration(seconds: 5),
+                                  //     transitionsBuilder: (context,animation,animationTime,child){
+                                  //       animation =CurvedAnimation(parent: animation, curve: Curves.easeInCirc);
+                                  //       return ScaleTransition(scale: animation,
+                                  //       child: child,
+                                  //         alignment: Alignment.center,
+                                  //       );
+                                  //     }
+                                  //     pageBuilder:(context, )
+                                  //   ),
+                                  // );
+                                  Navigator.push(context, ScaleRoute(page: RatingDetails(ScreenArguments(id, url))));
                                 },
                                 child: Container(
                                   width: MediaQuery.of(context).size.width - 20,
@@ -150,7 +165,9 @@ class _LandingPageState extends State<LandingPage> {
                                                   ),
                                                 ),
                                               )
-                                            : SizedBox(height: 0,),
+                                            : SizedBox(
+                                                height: 0,
+                                              ),
                                       ),
                                     ],
                                   ),
@@ -165,7 +182,10 @@ class _LandingPageState extends State<LandingPage> {
                                   margin: EdgeInsets.only(right: 10),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(20.0),
-                                    child: Image.asset(BImages.loadMore,fit: BoxFit.fill,),
+                                    child: Image.asset(
+                                      BImages.loadMore,
+                                      fit: BoxFit.fill,
+                                    ),
                                   ),
                                 ),
                               );

@@ -70,7 +70,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                     Spacer(),
                     Container(
                         margin: EdgeInsets.only(right: 12,top: 10),
-                        child: SvgPicture.asset(BImages.right)),
+                        child: Image.asset(BImages.right)),
                   ],
                 ),
               ),
@@ -162,7 +162,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                 margin: EdgeInsets.only(left: 4, right: 4),
                 child: Row(
                   children: [
-                    SvgPicture.asset(BImages.like),
+                    Image.asset(BImages.like),
                     Text(
                       '42 Likes',
                       style: TextStyle(
@@ -188,7 +188,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                   children: [
                     Row(
                       children: [
-                        SvgPicture.asset(BImages.like2,color: BColor.greyCol,),
+                        Image.asset(BImages.like2,color: BColor.greyCol,),
                         Container(
                           margin: EdgeInsets.only(left: 4),
                           child: Text(
@@ -204,7 +204,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                     ),
                     Row(
                       children: [
-                        SvgPicture.asset(BImages.comment),
+                        Image.asset(BImages.comment),
                         Container(
                           margin: EdgeInsets.only(left: 4),
                           child: Text(
@@ -220,7 +220,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                     ),
                     Row(
                       children: [
-                        SvgPicture.asset(BImages.share),
+                        Image.asset(BImages.share),
                         Container(
                           margin: EdgeInsets.only(left: 4),
                           child: Text(
