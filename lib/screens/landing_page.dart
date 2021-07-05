@@ -5,6 +5,7 @@ import 'package:flutter_app_bulbandkey/constants/constants.dart';
 import 'package:flutter_app_bulbandkey/controller/controller.dart';
 import 'package:flutter_app_bulbandkey/screens/export.dart';
 import 'package:flutter_app_bulbandkey/widgets/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 
@@ -33,21 +34,16 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: BColor.whiteCol,
+        leading: SvgPicture.asset(BImages.logo),
         actions: <Widget>[
           Container(
               margin: EdgeInsets.only(right: 8),
-              child: Icon(
-                Icons.notifications,
-                color: BColor.greyCol,
-                size: 24,
-              )),
+              child: SvgPicture.asset(BImages.bell),
+          ),
           Container(
               margin: EdgeInsets.only(right: 8),
-              child: Icon(
-                Icons.search,
-                color: BColor.greyCol,
-                size: 22,
-              )),
+              child: SvgPicture.asset(BImages.search),
+          ),
         ],
       ),
       body: SafeArea(
@@ -65,11 +61,7 @@ class _LandingPageState extends State<LandingPage> {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.location_on,
-                          color: BColor.redCol,
-                          size: 22,
-                        ),
+                SvgPicture.asset(BImages.location),
                         Text(
                           'Unnmaned Road,Baner340...',
                           style: TextStyle(
@@ -173,10 +165,7 @@ class _LandingPageState extends State<LandingPage> {
                                   margin: EdgeInsets.only(right: 10),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(20.0),
-                                    child: Image.asset(
-                                      'Assets/Images/loadMore.png',
-                                      fit: BoxFit.fill,
-                                    ),
+                                    child: Image.asset(BImages.loadMore,fit: BoxFit.fill,),
                                   ),
                                 ),
                               );

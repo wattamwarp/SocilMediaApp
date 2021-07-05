@@ -40,64 +40,92 @@ class _RatingDetailsState extends State<RatingDetails> {
     return Scaffold(
       body: SafeArea(
         child: Obx(() {
-          return Container(
-            color: BColor.blackCol,
-            child: Column(
-              children: [
-                Container(
-                  height: 200,
-                  width: _width,
-                  child: Image.network(
-                    widget.arguments.url,
-                    fit: BoxFit.fill,
+          return SingleChildScrollView(
+            child: Container(
+              height: _height,
+              color: BColor.blackCol,
+              child: Column(
+                children: [
+                  SizedBox(height: 50,),
+                  Container(
+                    height: 200,
+                    width: _width,
+                    child: Image.network(
+                      widget.arguments.url,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-                TextField(
-                  controller: nameCon,
-                  onChanged: (val) {
-                    //print(val);
-                  },
-                ),
-                RatingBar.builder(
-                  initialRating: _ratingPageController.rating.value,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: false,
-                  itemCount: 5,
-                  unratedColor: BColor.btnCol,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                  itemBuilder: (context, _) => Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  onRatingUpdate: (val) {
-                    _ratingPageController.rating.value = val;
-                  },
-                ),
-                TextField(
-                  controller: reasonCon,
-                  onChanged: (val) {},
-                ),
-                InkWell(
-                  onTap: () async {
-                    Map<String, String> map = {
-                      'givenBy': nameCon.text,
-                      'reason': reasonCon.text,
-                      'rating': _ratingPageController.rating.toString()
-                    };
-                    await save(widget.arguments.id, map);
-                    _landingPageCrontroller.updateRating();
-
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    width: 100,
+                  SizedBox(height: 50,),
+                  Container(
                     height: 40,
-                    color: BColor.btnCol,
-                    child: Center(child: Text('submit')),
+                    width: _width,
+                    color: Colors.white,
+                    margin:EdgeInsets.only(left: 18,right: 18),
+                    child: TextField(
+                      controller: nameCon,
+
+                        decoration: InputDecoration(
+                          hintText: 'Given By'
+                        ),
+
+                      onChanged: (val) {
+                        //print(val);
+                      },
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(height: 50,),
+                  RatingBar.builder(
+                    initialRating: _ratingPageController.rating.value,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    unratedColor: BColor.btnCol,
+                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (val) {
+                      _ratingPageController.rating.value = val;
+                    },
+                  ),
+                  SizedBox(height: 50,),
+                  Container(
+                    height: 40,
+                    width: _width,
+                    color: Colors.white,
+                    margin:EdgeInsets.only(left: 18,right: 18),
+                    child: TextField(
+                      controller: reasonCon,
+                      decoration: InputDecoration(
+                          hintText: 'Reason'
+                      ),
+                      onChanged: (val) {},
+                    ),
+                  ),
+                  SizedBox(height: 100,),
+                  InkWell(
+                    onTap: () async {
+                      Map<String, String> map = {
+                        'givenBy': nameCon.text,
+                        'reason': reasonCon.text,
+                        'rating': _ratingPageController.rating.toString()
+                      };
+                      await save(widget.arguments.id, map);
+                      _landingPageCrontroller.updateRating();
+
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 40,
+                      color: Colors.blue,
+                      child: Center(child: Text('submit')),
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         }),

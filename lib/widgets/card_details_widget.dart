@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_bulbandkey/constants/color.dart';
+import 'package:flutter_app_bulbandkey/constants/constants.dart';
 import 'package:flutter_app_bulbandkey/constants/urls.dart';
 import 'package:flutter_app_bulbandkey/controller/landing_page_controller.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 class CardDetailsWidget extends StatefulWidget {
   @override
@@ -64,7 +66,11 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                           )
                         ],
                       ),
-                    )
+                    ),
+                    Spacer(),
+                    Container(
+                        margin: EdgeInsets.only(right: 12,top: 10),
+                        child: SvgPicture.asset(BImages.right)),
                   ],
                 ),
               ),
@@ -156,11 +162,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                 margin: EdgeInsets.only(left: 4, right: 4),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.add,
-                      color: BColor.redCol,
-                      size: 18,
-                    ),
+                    SvgPicture.asset(BImages.like),
                     Text(
                       '42 Likes',
                       style: TextStyle(
@@ -186,11 +188,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.add,
-                          color: BColor.greyCol,
-                          size: 16,
-                        ),
+                        SvgPicture.asset(BImages.like2,color: BColor.greyCol,),
                         Container(
                           margin: EdgeInsets.only(left: 4),
                           child: Text(
@@ -206,11 +204,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                     ),
                     Row(
                       children: [
-                        Icon(
-                          Icons.messenger_outline,
-                          color: BColor.greyCol,
-                          size: 16,
-                        ),
+                        SvgPicture.asset(BImages.comment),
                         Container(
                           margin: EdgeInsets.only(left: 4),
                           child: Text(
@@ -226,11 +220,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
                     ),
                     Row(
                       children: [
-                        Icon(
-                          Icons.share,
-                          color: BColor.greyCol,
-                          size: 16,
-                        ),
+                        SvgPicture.asset(BImages.share),
                         Container(
                           margin: EdgeInsets.only(left: 4),
                           child: Text(
