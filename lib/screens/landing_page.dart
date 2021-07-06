@@ -33,7 +33,8 @@ class _LandingPageState extends State<LandingPage> {
       appBar: AppBar(
         backgroundColor: BColor.whiteCol,
         leading: Container(
-            margin: EdgeInsets.only(left: 18),            child: Image.asset(BImages.logo)),
+            margin: EdgeInsets.only(left: 18),
+            child: Image.asset(BImages.logo)),
         actions: <Widget>[
           Container(
             margin: EdgeInsets.only(right: 8),
@@ -123,7 +124,11 @@ class _LandingPageState extends State<LandingPage> {
                                   //     pageBuilder:(context, )
                                   //   ),
                                   // );
-                                  Navigator.push(context, ScaleRoute(page: RatingDetails(ScreenArguments(id, url))));
+                                  Navigator.push(
+                                      context,
+                                      ScaleRoute(
+                                          page: RatingDetails(
+                                              ScreenArguments(id, url))));
                                 },
                                 child: Container(
                                   width: MediaQuery.of(context).size.width - 20,
